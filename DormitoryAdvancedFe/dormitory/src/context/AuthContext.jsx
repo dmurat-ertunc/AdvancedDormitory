@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     if (Array.isArray(roleData)) {
       return roleData; // Zaten liste ise olduğu gibi döndür
     } else if (typeof roleData === "string") {
-      return [roleData]; // Tek bir string ise listeye sar: ["ADMIN"]...
+      return [roleData]; // Tek bir string ise listeye sar: ["ADMIN"]
     }
     return []; // Hiçbiri değilse boş liste döndür
   };

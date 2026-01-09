@@ -25,7 +25,7 @@ public class JWTGenerator {
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + SecurityConstants.JWT_EXPIRATION);
 
-        // 1. ADIM: Rolleri Authentication nesnesinden çekiyoruzssadasdasds
+        // 1. ADIM: Rolleri Authentication nesnesinden çekiyoruz
         List<String> roles = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
