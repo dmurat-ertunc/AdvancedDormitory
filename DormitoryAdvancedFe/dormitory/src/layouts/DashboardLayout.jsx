@@ -13,8 +13,8 @@ const mainBg = '#0a192f';    // Ana arka plan rengi
 const menuItems = [
     { text: 'Ana Sayfa', icon: <Dashboard />, path: '/dashboard' },
     { text: 'Öğrenciler', icon: <People />, path: '/students' },
-    { text: 'Odalar', icon: <BedroomParent />, path: '/rooms' },
-    { text: 'Ödemeler', icon: <Payment />, path: '/payments' },
+    { text: 'Odalar', icon: <BedroomParent />, path: '/rooms', roles: ['ADMIN', 'SUPER_ADMIN', 'DEVELOPER'] },
+    { text: 'Ödemeler', icon: <Payment />, path: '/payments', roles: ['SUPER_ADMIN', 'DEVELOPER'] },
     { text: 'Ayarlar', icon: <Settings />, path: '/settings' },
 ];
 
@@ -26,6 +26,12 @@ const DashboardLayout = ({ children }) => {
         AuthService.logout();
         navigate('/login');
     };
+
+    const filteredMenuItems = menuItems.filter(item => {
+        if (!item.roles || item.roles.length === 0) return true;
+        const currentUserRoles = userRoles || [];
+        return item.roles.some(permittedRole => currentUserRoles.includes(permittedRole));
+    });
 
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: mainBg }}>
@@ -92,11 +98,11 @@ const DashboardLayout = ({ children }) => {
                 >
                     <Box sx={{ p: 3, textAlign: 'center', mb: 2 }}>
                         <Typography variant="h5" fontWeight="900" sx={{ color: '#64ffda', letterSpacing: 3 }}>
-                            DORMITORY
+                            YYP
                         </Typography>
                     </Box>
                     <List sx={{ px: 2 }}>
-                        {menuItems.map((item) => (
+                        {filteredMenuItems.map((item) => (
                             <ListItem
                                 button
                                 key={item.text}
