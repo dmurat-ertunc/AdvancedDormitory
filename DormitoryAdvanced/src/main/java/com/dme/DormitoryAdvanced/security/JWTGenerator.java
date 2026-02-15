@@ -18,7 +18,8 @@ import java.util.stream.Collectors; // Import eklendi
 public class JWTGenerator {
 
     // NOT: Key oluşturma yöntemin development için uygun, prod için sabit key kullanmalısın.
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    private final Key key =
+            Keys.hmacShaKeyFor(SecurityConstants.JWT_SECRET.getBytes());
 
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();

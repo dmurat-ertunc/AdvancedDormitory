@@ -22,9 +22,6 @@ public class StudentDTO {
     private String email;
     private ZonedDateTime birthDate;
     private String phoneNumber;
-    private User user;
-    private University university;
-    private Room room;
     private Long universityId;
     private Long roomId;
 
@@ -34,7 +31,7 @@ public class StudentDTO {
     public StudentDTO(Long id, String createdBy, ZonedDateTime createdDt, String updatedBy,
                       ZonedDateTime updatedDt, Boolean active, String name, String surname,
                       String identityNo, String email, ZonedDateTime birthDate, String phoneNumber,
-                      User user, University university, Room room, Long universityId, Long roomId) {
+                      Long universityId, Long roomId) {
         this.id = id;
         this.createdBy = createdBy;
         this.createdDt = createdDt;
@@ -47,9 +44,6 @@ public class StudentDTO {
         this.email = email;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
-        this.user = user;
-        this.university = university;
-        this.room = room;
         this.universityId = universityId;
         this.roomId = roomId;
     }
@@ -125,24 +119,6 @@ public class StudentDTO {
     }
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-    public University getUniversity() {
-        return university;
-    }
-    public void setUniversity(University university) {
-        this.university = university;
-    }
-    public Room getRoom() {
-        return room;
-    }
-    public void setRoom(Room room) {
-        this.room = room;
     }
     public Long getUniversityId() {
         return universityId;

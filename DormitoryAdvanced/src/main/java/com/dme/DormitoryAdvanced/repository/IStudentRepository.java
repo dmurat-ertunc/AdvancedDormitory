@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
 public interface IStudentRepository extends JpaRepository<Student, Long> , JpaSpecificationExecutor<Student> {
 
     Page<Student> findAll(Specification<Student> spec, Pageable pageable);
-
+    boolean existsByEmail(String email);
 }

@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests( // authorizeRequests yerine authorizeHttpRequests (Spring Boot 3 için daha güncel)
                         auth -> auth
                                 .requestMatchers("/api/auth/**").permitAll()
-                                .requestMatchers("/api/student/**").hasRole("ADMIN")
+                                .requestMatchers("/api/student/**").permitAll()
                                 .requestMatchers("/api/room/**").permitAll()
                                 // api/universities buraya girer ve kimlik doğrulama ister
                                 .anyRequest().authenticated()

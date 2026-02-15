@@ -28,9 +28,6 @@ public class StudentMapper {
         dto.setBirthDate(entity.getBirthDate());
         dto.setPhoneNumber(entity.getPhoneNumber());
 
-//        dto.setUser(entity.getUser()); // varsa UserDTO ile değiştirilebilir
-        dto.setUniversity(entity.getUniversity());
-        dto.setRoom(entity.getRoom());
 
         dto.setUniversityId(entity.getUniversity() != null ? entity.getUniversity().getId() : null);
         dto.setRoomId(entity.getRoom() != null ? entity.getRoom().getId() : null);
@@ -54,10 +51,6 @@ public class StudentMapper {
         entity.setEmail(dto.getEmail());
         entity.setBirthDate(dto.getBirthDate());
         entity.setPhoneNumber(dto.getPhoneNumber());
-
-//        entity.setUser(dto.getUser());
-        entity.setUniversity(dto.getUniversity()); // isteğe bağlı Entity load edilebilir
-        entity.setRoom(dto.getRoom());
 
         return entity;
     }

@@ -32,9 +32,9 @@ public class Room {
     private Boolean active;
     @Column(name = "room_no")
     private Long roomNo;
-    @Column(name = "room_size")  // odada şuan kaç kişi var
+    @Column(name = "room_size")  // odanın max alabileceği kişi sayıfıs
     private int roomSize;
-    @Column(name = "many_size") // odanın max alabileceği kişi sayıfıs
+    @Column(name = "many_size") // odada şuan kaç kişi var
     private int manySize;
     @Column(name = "per_person_price")  // odanın fiyatı
     private float perPersonPrice;
